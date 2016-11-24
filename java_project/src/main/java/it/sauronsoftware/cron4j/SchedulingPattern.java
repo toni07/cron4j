@@ -18,12 +18,7 @@
  */
 package it.sauronsoftware.cron4j;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.Iterator;
-import java.util.StringTokenizer;
-import java.util.TimeZone;
+import java.util.*;
 
 /**
  * <p>
@@ -200,7 +195,7 @@ public class SchedulingPattern {
 	/**
 	 * The ValueMatcher list for the "minute" field.
 	 */
-	protected ArrayList minuteMatchers = new ArrayList();
+	protected List<ValueMatcher> minuteMatchers = new ArrayList<>();
 
 	/**
 	 * The ValueMatcher list for the "hour" field.
@@ -722,6 +717,7 @@ public class SchedulingPattern {
 			super(0, 7);
 		}
 
+		//TODO toni07: modify this to be able to parse "2#3" (the 3rd Monday of the month)
 		public int parse(String value) throws Exception {
 			try {
 				// try as a simple value
